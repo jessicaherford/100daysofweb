@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MUI Landing Page Example</title>
+    <link href="//cdn.muicss.com/mui-0.10.0/css/mui.min.css" rel="stylesheet" type="text/css" />
+    <script src="//cdn.muicss.com/mui-0.10.0/js/mui.min.js"></script>
+    <link rel="static/style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <header class="mui-appbar mui--z1">
+    <div class="mui-container">
+      <table>
+        <tr class="mui--appbar-height">
+          <td class="mui--text-title">Brand.io</td>
+          <td class="mui--text-right">
+            <ul class="mui-list--inline mui--text-body2">
+              <li><a href="{{ url_for('pricing') }}"><span id="a-tags">Pricing</span></a></li>
+              <li><a href="{{ url_for('about_page') }}"><span id="a-tags">About</span></a></li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </header>
+  <body>
+    {% block content %}{% endblock %}
+  </body>
+  <footer>
+      <div class="mui-container mui--text-center">
+        Made with ♥ by <a href="https://www.muicss.com">MUICSS</a>
+      </div>
+  </footer>
+</html>
