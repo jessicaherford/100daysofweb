@@ -19,6 +19,9 @@
   </component>
   <component name="ProjectId" id="1U58KUy1VlEZEJHyi5qafJMiAm6" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="reference.idesettings.emmet" />
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -49,7 +52,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

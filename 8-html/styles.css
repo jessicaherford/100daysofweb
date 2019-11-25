@@ -5,14 +5,19 @@ body {
 
 aside{
   position: fixed;
-    width: 20vw;
+  top: 40%;
+  width: 20vw;
+  margin-left: 30px;
 }
 
-.label{
+.label {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 100px;
+  font-size: 1.5em;
+  text-align: center;
+ }
+
+ p {
+   text-align: center;
  }
 
 main{
@@ -23,7 +28,8 @@ main{
  }
 
 img{
-    height: 500px;
+    height: 600px;
+    margin: 10px;
 }
 
 /* Demo Specific Styles */
