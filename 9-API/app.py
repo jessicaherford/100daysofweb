@@ -35,15 +35,20 @@ class Car(types.Type):
 # API methods
 
 def list_cars() -> List[Car]:
-    pass
+    return [Car(car[1]) for car in sorted(cars.items())]
 
 
 def create_car(car: Car) -> JSONResponse:
     pass
 
 
-def get_car(car: Car) -> JSONResponse:
-    pass
+def get_car(car_id: int) -> JSONResponse:
+    car = cars.get(car_id)
+    if not car:
+        error = {'error': CAR_NOT_FOUND}
+        return JSONResponse(error, 404)
+
+    return JSONResponse(Car(car), 200)
 
 
 def update_car(car_id: int, car: Car) -> JSONResponse:
@@ -55,7 +60,11 @@ def delete_car(car_id: int) -> JSONResponse:
 
 
 routes = [
-
+    Route('/', method='GET', handler=list_cars),
+    Route('/', method='POST', handler=create_car),
+    Route('/{car_id}/', method='GET', handler=get_car),
+    Route('/{car_id}/', method='PUT', handler=update_car),
+    Route('/{car_id}/', method='DELETE', handler=delete_car)
 ]
 
 app = App(routes=routes)
