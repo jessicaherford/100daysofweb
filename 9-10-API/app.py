@@ -21,7 +21,6 @@ VALID_MANUFACTURERS = set([car["manufacturer"]
 CAR_NOT_FOUND = 'Car not found'
 
 breakpoint
-# definition
 
 
 class Car(types.Type):
@@ -39,7 +38,10 @@ def list_cars() -> List[Car]:
 
 
 def create_car(car: Car) -> JSONResponse:
-    pass
+    car_id = len(cars) + 1
+    car.id = car_id
+    cars[car_id] = car
+    return JSONResponse(Car(car), 201)
 
 
 def get_car(car_id: int) -> JSONResponse:
@@ -52,11 +54,22 @@ def get_car(car_id: int) -> JSONResponse:
 
 
 def update_car(car_id: int, car: Car) -> JSONResponse:
-    pass
+    if not cars.get(car_id):
+        error = {'error': CAR_NOT_FOUND}
+        return JSONResponse(error, 404)
+
+    car.id = car_id
+    cars[car_id] = car
+    return JSONResponse(Car(car), 200)
 
 
 def delete_car(car_id: int) -> JSONResponse:
-    pass
+    if not cars.get( car_id ):
+        error = {'error': CAR_NOT_FOUND}
+        return JSONResponse( error, 404 )
+
+    del cars[car_id]
+    return JSONResponse({}, 204)
 
 
 routes = [
