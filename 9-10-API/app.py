@@ -20,8 +20,6 @@ VALID_MANUFACTURERS = set([car["manufacturer"]
                            for car in cars.values()])
 CAR_NOT_FOUND = 'Car not found'
 
-breakpoint
-
 
 class Car(types.Type):
     id = validators.Integer(allow_null=True)
