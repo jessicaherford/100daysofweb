@@ -1,27 +1,19 @@
 .container {
-    height: 100%;
     display: grid;
-    grid-gap: 3px;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 40px auto 40px;
-    grid-template-areas:
-        "m m h h h h h h h h h h"
-        "m m c c c c c c c c c c"
-        "m m f f f f f f f f f f";
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-auto-rows: 75px;
 }
 
-.header {
-    grid-area: h;
+.horizontal {
+    grid-column: span 2;
 }
 
-.menu {
-    grid-area: m
+.vertical {
+    grid-row: span 2;
 }
 
-.content {
-    grid-area: c;
-}
-
-.footer {
-    grid-area: f;
+.big {
+    grid-column: span 2;
+    grid-row: span 2;
 }
