@@ -19,6 +19,7 @@ def index():
 def chuck():
     joke = requests.get('https://api.chucknorris.io/jokes/random')
     data = joke.json()
-    return render_template('chuck.html', chuck_joke=data['value'])
+    return render_template('chuck.html', chuck_joke=data['value'], chuck_image=data['icon_url'])
+
 
 
