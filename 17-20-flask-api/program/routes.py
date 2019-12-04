@@ -22,4 +22,8 @@ def chuck():
     return render_template('chuck.html', chuck_joke=data['value'], chuck_image=data['icon_url'])
 
 
-
+@app.route('/pokemon')
+def pokemons():
+    pokemon = requests.get('https://pokeapi.co/api/v2/pokemon')
+    data = pokemon.json()
+    return render_template('pokemon.html', pokemon=data['results'])
