@@ -1,8 +1,8 @@
-import request
+import requests
 import json
 
 from program import app
-from flask import render_template
+from flask import render_template, request
 from datetime import datetime
 
 
@@ -23,16 +23,18 @@ def chuck():
 
 
 @app.route('/pokemon', methods=['GET', 'POST'])
-def pokemons():
+def pokemon():
     pokemon = []
-    if request == 'POST' and 'pokecolor' in request.form:
-        color = request.form.get('pokecolor')
-        pokemon = get_poke_color(color)
-    return render_template('pokemon.html', pokemon=pokemon)
+    if request.method == 'POST' and 'pokecolour' in request.form:
+        colour = request.form.get('pokecolour')
+        pokemon = get_poke_colours(colour)
+    return render_template('pokemon.html',
+                           pokemon=pokemon)
 
 
-def get_poke_color(color):
-    r = request.get('https://pokeapi.co/api/v2/pokemon-color/' + color.lower())
+
+def get_poke_colours(colour):
+    r = requests.get('https://pokeapi.co/api/v2/pokemon-color/' + colour.lower())
     pokedata = r.json()
     pokemon = []
 
