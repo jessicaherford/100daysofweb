@@ -1,4 +1,4 @@
-import requests
+import request
 import json
 
 from program import app
@@ -17,13 +17,26 @@ def index():
 
 @app.route('/chuck')
 def chuck():
-    joke = requests.get('https://api.chucknorris.io/jokes/random')
+    joke = request.get('https://api.chucknorris.io/jokes/random')
     data = joke.json()
     return render_template('chuck.html', chuck_joke=data['value'], chuck_image=data['icon_url'])
 
 
-@app.route('/pokemon')
+@app.route('/pokemon', methods=['GET', 'POST'])
 def pokemons():
-    pokemon = requests.get('https://pokeapi.co/api/v2/pokemon')
-    data = pokemon.json()
-    return render_template('pokemon.html', pokemon=data['results'])
+    pokemon = []
+    if request == 'POST' and 'pokecolor' in request.form:
+        color = request.form.get('pokecolor')
+        pokemon = get_poke_color(color)
+    return render_template('pokemon.html', pokemon=pokemon)
+
+
+def get_poke_color(color):
+    r = request.get('https://pokeapi.co/api/v2/pokemon-color/' + color.lower())
+    pokedata = r.json()
+    pokemon = []
+
+    for i in pokedata['pokemon_species']:
+        pokemon.append(i['name'])
+
+    return pokemon
