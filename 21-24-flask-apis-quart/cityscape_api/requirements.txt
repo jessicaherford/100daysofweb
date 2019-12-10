@@ -4,6 +4,6 @@ flask
 # Calling services requirements
 requests
 
-aiohttp
-aiodns
-cchardet
+#aiohttp
+#aiodns
+#cchardet
