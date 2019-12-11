@@ -1,4 +1,4 @@
-import flask
+import quart
 from cityscape_api.views import city_api
 from cityscape_api.views import home
 from cityscape_api.config import settings
@@ -6,7 +6,7 @@ import cityscape_api.services.weather_service
 import cityscape_api.services.sun_service
 import cityscape_api.services.location_service
 
-app = flask.Flask(__name__)
+app = quart.Quart(__name__)
 is_debug = True
 
 app.register_blueprint(home.blueprint)
