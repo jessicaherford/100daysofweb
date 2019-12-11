@@ -43,7 +43,7 @@ async def get_title_range():
 
     for n, t in tasks:
         html = await t
-        
+
     for n in range(150, 170):
         html = await get_html(n)
         title = get_title(html, n)
