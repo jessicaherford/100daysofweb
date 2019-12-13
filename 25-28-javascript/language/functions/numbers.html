@@ -9,8 +9,11 @@
     default summing a range of 1..100 - write a second function
     called range to return that range of integers */
   function sum(numbers){
-    // you code
+      if(numbers){
+        return numbers.reduce((a,b) => a + b, 0);
+      }
   }
+      
   // test code
   // with argument
   let ages = [11, 18, 25, 17, 33];

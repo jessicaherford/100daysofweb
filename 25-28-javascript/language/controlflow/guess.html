@@ -25,8 +25,7 @@
   let guess = prompt("Guess a number.");
   guess = parseInt(guess)
 
- 
-  if(isNan(guess)){
+  if(isNaN(guess)){
       console.log("Not a number please guess again.");
       continue
   }
@@ -40,7 +39,7 @@
       continue
   }
   else if (guess < secretNumber){
-      conosle.log("Too low, guess again.");
+      console.log("Too low, guess again.");
       continue
   }
   }
