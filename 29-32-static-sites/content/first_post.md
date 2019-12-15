@@ -16,3 +16,7 @@ We're writing this in markdown format so we can use two * symbols to indicate a 
 ### A slightly smaller header....
 
 We can also use a single * around a block of text to indicate an *italicized* word.
+
+### Adorable Dog
+
+![Archer Contemplating]({static}/images/archer_contemplating.JPG){:height="200px" width="200px"}
