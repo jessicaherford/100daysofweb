@@ -1,8 +1,8 @@
 import datetime
 import sys
 from typing import List
-from infrastructure.numbers import try_int
-from infrastructure.switchlang import switch
+from hovershare_app.infrastructure.numbers import try_int
+from hovershare_app.infrastructure.switchlang import switch
 
 
 user = None
