@@ -1,9 +1,12 @@
 import datetime
 import sys
 from typing import List
+
+from hovershare_app import import_data
+from hovershare_app.data import session_factory
 from hovershare_app.infrastructure.numbers import try_int
 from hovershare_app.infrastructure.switchlang import switch
-
+from hovershare_app.services import data_service
 
 user = None
 
@@ -26,12 +29,11 @@ def main():
 
 
 def setup_db():
-    pass
-    # todo setup the setup_db
-    # 1. initialize the connection / engine
-    # 2. create the tables
-    # 3. import data
-    # 4. set default user
+    global user
+    session_factory.global_init('hover_share.sqlite')
+    session_factory.create_tables()
+    import_data.import_if_empty()
+    user = data_service.get_default_user()
 
 
 def rent_a_scooter():
