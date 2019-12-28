@@ -18,4 +18,4 @@ class Scooter(SqlAlchemyBase):
     location_id = sa.Column(sa.Integer,
                             sa.ForeignKey('locations.id'), nullable=True)
 
-    #location = orm.relation("Location")
+    location = orm.relation("Location")
