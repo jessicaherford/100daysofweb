@@ -1,0 +1,3 @@
+[run]
+source = billpro
+omit = billpro/test*
