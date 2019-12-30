@@ -8,7 +8,9 @@ from billpro.data.models.bill import Bill
 
 
 def get_user_by_id(user_id: int, include_bills=True) -> Optional[User]:
+    print(f"Before Session Called")
     session = DbSession.create_session()
+    print(f"Session: {session}")
     try:
         if not include_bills:
             return session.query(User).filter(User.id == user_id).first()

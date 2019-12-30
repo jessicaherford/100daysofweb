@@ -12,11 +12,9 @@ from billpro.data.models.users import User
 
 
 def load_starter_data():
-    print("Loading starter data...")
     session = DbSession.create_session()
     if session.query(Bill).count() > 0:
         session.close()
-        print("Data already loaded...")
         return
 
     session.expire_on_commit = False

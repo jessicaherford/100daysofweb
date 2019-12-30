@@ -44,8 +44,9 @@ setup(name='billpro',
           'testing': tests_require,
       },
       install_requires=requires,
-      entry_points="""\
-      [paste.app_factory]
-      main = billpro:main
-      """,
-      )
+      entry_points={
+        'paste.app_factory': [
+            'main = billpro:main',
+        ],
+      },
+)

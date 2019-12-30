@@ -1,8 +1,81 @@
 {% extends "../shared/layout.jinja2" %}
 
-{% block content%}
-<div class="content">
-    <h1><span class="font-semi-bold">Pyramid</span> <span class="smaller">Starter scaffold</span></h1>
-    <p class="lead">Welcome to <span class="font-normal">{{project}}</span>, an&nbsp;application generated&nbsp;by<br>the <span class="font-normal">Pyramid Web Framework 1.10.4</span>.</p>
-</div>
+{% block content %}
+    <div class="content">
+
+        <div id="hero">
+            <h1><span class="font-semi-bold">Bill Pro </span><span class="smaller">Demo</span></h1>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-10">
+                    <div class="content">
+                        <p class="lead">Hi <span class="font-normal"> {{ user.name }}</span>.
+                            Welcome to <span class="font-normal">Bill Pro Demo Site</span>.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+                <h2>Unpaid bills {{ user.total_owed }}</h2>
+            </div>
+        </div>
+
+        <div class="row grid-entry">
+            <div class="col-md-2 filler"></div>
+            <div class="col-md-1"><strong>Date</strong></div>
+            <div class="col-md-1 amount"><strong>Total</strong></div>
+            <div class="col-md-1 amount"><strong>Still owe</strong></div>
+            <div class="col-md-1"><strong>Category</strong></div>
+            <div class="col-md-6 filler"></div>
+        </div>
+        <div class="row grid-entry">
+            {% for bill in user.open_bills %}
+                <div class="col-md-2 filler"></div>
+                <div class="col-md-1 values">{{ bill.created_date.date() }}</div>
+                <div class="col-md-1 amount values">${{ bill.total }}</div>
+                <div class="col-md-1 amount values">${{ bill.total - bill.paid }}</div>
+                <div class="col-md-1 values">{{ bill.description }}</div>
+                <div class="col-md-6 values">Make payment
+                    {#                    <a href="/bill/${.id}" class="btn btn-success btn-sm">Make payment</a>#}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+                <h2>Past bills {{ user.total_paid_off }}</h2>
+            </div>
+        </div>
+        <div class="row grid-entry">
+            <div class="col-md-2 filler"></div>
+            <div class="col-md-1"><strong>Date</strong></div>
+            <div class="col-md-1 amount"><strong>Total</strong></div>
+            <div class="col-md-1 amount"><strong>Still owe</strong></div>
+            <div class="col-md-1"><strong>Category</strong></div>
+            <div class="col-md-6 filler"></div>
+        </div>
+        <div class="row grid-entry">
+            {% for bill in user.open_bills %}
+                <div class="col-md-2 filler"></div>
+                <div class="col-md-1 values">{{ bill.description }}</div>
+                <div class="col-md-1 values">{{ bill.created_date.date() }}</div>
+                <div class="col-md-1 amount values">${{ bill.total }}</div>
+                <div class="col-md-1 amount values">${{ bill.total - bill.paid }}</div>
+                <div class="col-md-6 values">{{ bill.description }}</div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {#        <div id="eop"> &nbsp;</div>#}
+
+    </div>
 {% endblock content %}
