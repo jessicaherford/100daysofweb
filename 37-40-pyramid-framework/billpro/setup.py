@@ -13,6 +13,8 @@ requires = [
     'pyramid_jinja2',
     'pyramid_debugtoolbar',
     'waitress',
+    'sqlalchemy',
+    'python-dateutil'
     ]
 
 tests_require = [
