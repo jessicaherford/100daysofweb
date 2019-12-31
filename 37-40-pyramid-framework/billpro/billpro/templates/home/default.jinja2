@@ -43,8 +43,8 @@
                 <div class="col-md-1 amount values">${{ bill.total }}</div>
                 <div class="col-md-1 amount values">${{ bill.total - bill.paid }}</div>
                 <div class="col-md-1 values">{{ bill.description }}</div>
-                <div class="col-md-6 values">Make payment
-                    {#                    <a href="/bill/${.id}" class="btn btn-success btn-sm">Make payment</a>#}
+                <div class="col-md-6 values">
+                    <a href="/bill/{{bill.id}}" class="btn btn-success btn-sm">Make payment</a>
                 </div>
             {% endfor %}
         </div>
@@ -75,7 +75,5 @@
         </div>
     </div>
 
-    {#        <div id="eop"> &nbsp;</div>#}
-
-    </div>
+    {# <div id="eop"> &nbsp;</div>#}
 {% endblock content %}

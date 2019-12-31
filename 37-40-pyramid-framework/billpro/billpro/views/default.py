@@ -18,6 +18,7 @@ def home(_: Request):
 @view_config(route_name='details', renderer='../templates/home/details.jinja2', request_method='GET')
 def details_get(request: Request):
     bill_id = int(request.matchdict.get('bill_id'))
+
     bill = repository.get_user_by_id(bill_id)
     if not bill:
         return Response(status=404)
