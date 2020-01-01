@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 const PAGE_TITLE = 'PyBites Python Tips API';
-const TWITTER_ICON = 'https://codechallenge.es/static/img/icon-twitter.png'
+const TWITTER_ICON = 'https://codechalleng.es/static/img/icon-twitter.png'
 
 function Tip(props) {
     return(
@@ -36,6 +36,12 @@ function App() {
             value=''
             onChange=''/>
        </form>
+
+       <div id="tips">
+            <Tip tip="123" code="print1" link='http' />
+            <Tip tip="456" code="print2"/>
+            <Tip tip="789" code="print3" share_link='https' />
+        </div>
     </div>
   );
 }
